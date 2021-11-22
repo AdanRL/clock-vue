@@ -1,7 +1,7 @@
 <template>
   <div class="clock-container">
     <h1>Hello Clock</h1>
-    <div class="clock">
+    <div :class="theme" class="clock">
       {{ hours }}:{{ minutes }}:{{ seconds }}
     </div>
   </div>
@@ -10,6 +10,16 @@
 <script>
 export default {
   name:"VueClock",
+  props: {
+    theme:{
+      type: String,
+      default: "red",
+      required: true,
+      validator: v => {
+        return v == "red" || v == "blue" || v == "green" ? true : false;
+      }
+    } 
+  },
   data() {
     return {
       hours: "--",
@@ -55,12 +65,10 @@ export default {
     text-align: center;
 
 }
-
 .clock {
 
   background: black;
   height: 60px;
-  color: red;
   font-size: 20px;
   text-shadow: 0 0 1px rgb(201, 124, 124), 
   0 0 5px rgba(201, 124, 124),
@@ -71,5 +79,14 @@ export default {
   0 0 80px rgba(161, 72, 72), 
   0 0 120px rgba(161, 72, 72),
   0 0 150px rgba(161, 72, 72);
+  &.blue {
+    color: blue;
+  }
+  &.red {
+    color: red;
+  }
+  &.green {
+    color: green;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
+<VueClock theme="blue"></VueClock>
 <VueClock></VueClock>
-<VueClock></VueClock>
-<VueClock></VueClock>
+<VueClock theme="green"></VueClock>
 </template>
 
 <script>
